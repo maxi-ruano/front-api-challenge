@@ -1,42 +1,75 @@
-# frontendApi
+🌦️ Branch Weather Frontend
+Aplicación frontend para gestionar sucursales y empleados, consultando el clima actual de cada sucursal desde una API externa.
 
-This template should help get you started developing with Vue 3 in Vite.
+📋 Tecnologías
+Tecnología	Uso
+Vue 3	Framework principal
+Axios	Cliente HTTP para consumir la API
+Vue Router	Navegación entre vistas
+Pinia	Gestión de estado (opcional)
+Tailwind CSS	Estilos (o el que uses)
+🚀 Características
+✅ Listado de sucursales con clima actual
 
-## Recommended IDE Setup
+✅ CRUD completo de sucursales
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+✅ CRUD completo de empleados (asociados a sucursales)
 
-## Recommended Browser Setup
+✅ Búsqueda de sucursales por nombre o ciudad
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+✅ Visualización de clima en tiempo real
 
-## Type Support for `.vue` Imports in TS
+✅ Interfaz responsive
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+📸 Vista previa
+Pantalla	Descripción
+Sucursales	Lista todas las sucursales con clima actual, temperatura y viento
+Empleados	Lista empleados, filtrables por sucursal
+Formularios	Crear/editar sucursales y empleados
+Búsqueda	Busca sucursales por nombre o ciudad
+🛠️ Instalación
+Requisitos
+Node.js 18+
 
-## Customize configuration
+NPM o Yarn
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Pasos
+bash
+# 1. Clonar el repositorio
+git clone https://github.com/maxi-ruano/front-api-challenge.git
+cd front-api-challenge
 
-## Project Setup
-
-```sh
+# 2. Instalar dependencias
 npm install
-```
 
-### Compile and Hot-Reload for Development
+# 3. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con la URL de tu API backend
 
-```sh
+# 4. Levantar servidor de desarrollo
 npm run dev
-```
+⚙️ Variables de entorno
+env
+VITE_API_URL=http://127.0.0.1:8000/api
+📡 Endpoints consumidos
+🏢 Sucursales (Branches)
+Método	Endpoint	Descripción
+GET	/branches	Listar sucursales (con clima)
+GET	/branches/{id}	Obtener una sucursal
+POST	/branches	Crear sucursal
+PUT	/branches/{id}	Actualizar sucursal
+DELETE	/branches/{id}	Eliminar sucursal
+GET	/branches/search?q={texto}	Buscar por nombre/ciudad
+👥 Empleados (Employees)
+Método	Endpoint	Descripción
+GET	/employees	Listar empleados (filtro por branch_id)
+GET	/employees/{id}	Obtener un empleado
+POST	/employees	Crear empleado
+PUT	/employees/{id}	Actualizar empleado
+DELETE	/employees/{id}	Eliminar empleado
 
-### Type-Check, Compile and Minify for Production
+🔗 Backend
+Este frontend consume la API desarrollada en Laravel con arquitectura hexagonal.
 
-```sh
-npm run build
-```
+📦 Repositorio backend: api-challenge
+
